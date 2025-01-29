@@ -29,6 +29,10 @@ if __name__ == "__main__":
     layout.addWidget(cadastro_label)
     layout.addWidget(nome_popular_edit)
     layout.addWidget(nome_cientifico_edit)
+    layout.addWidget(inserir_imagem_label)
+    layout.addWidget(inserir_imagem_button)
+    layout.addWidget(cancelar_button)
+    layout.addWidget(cadastrar_button)
 
 
     # cadastro_layout = QFormLayout(window)
