@@ -1,0 +1,31 @@
+QWidget {
+        background-color: pink;
+        border: 1px solid #160b24;
+        border-radius: 10px;
+    }
+
+QLabel {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+ 
+QPushButton {
+    background-color: blue;
+    color: white;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+QPushButton:hover {
+    background-color: #2980b9;
+}
+
+QPushButton:pressed {
+    background-color: #1f639e;
+}
+            
+#num {
+    background-color: yellow;
+}
