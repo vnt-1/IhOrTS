@@ -18,8 +18,10 @@ if __name__ == "__main__":
 
     nome_popular_edit.setPlaceholderText("Nome Popular")
     nome_cientifico_edit.setPlaceholderText("Nome Científico")
+
     inserir_imagem_label = QLabel("Inserir Imagem", window)
     inserir_imagem_button = QPushButton("Upload", window)
+    
     cancelar_button = QPushButton("Cancelar")
     cadastrar_button = QPushButton("Cadastrar")
 
