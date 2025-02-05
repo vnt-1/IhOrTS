@@ -65,7 +65,7 @@ class CadastroPlantas(QWidget):
         self.setWindowTitle("Cadastro de Plantas")  # Define o título da janela
         self.setGeometry(100, 100, 300, 400)  # Define a posição e o tamanho da janela
         self.setStyleSheet(
-            "background-color: green;"
+            "background-color: antiquewhite;"
         )  # Define a cor de fundo da janela
 
         layout = QVBoxLayout()  # Cria um layout vertical para organizar os elementos
@@ -75,7 +75,7 @@ class CadastroPlantas(QWidget):
         titulo.setFont(
             QFont("Arial", 14, QFont.Bold)
         )  # Define a fonte e o tamanho do texto
-        titulo.setStyleSheet("color: white;")  # Define a cor do texto
+        titulo.setStyleSheet("color: black;")  # Define a cor do texto
 
         # Campo de entrada para o nome popular da planta
         self.input_nome_popular = QLineEdit()
@@ -94,7 +94,7 @@ class CadastroPlantas(QWidget):
         # Botão para selecionar uma imagem da planta
         self.botao_imagem = QPushButton("Insira uma Imagem")
         self.botao_imagem.setStyleSheet(
-            "background-color: gray; color: white;"
+            "background-color: white; color: black;"
         )  # Define o estilo do botão
         self.botao_imagem.clicked.connect(
             self.abrir_arquivo
@@ -104,19 +104,19 @@ class CadastroPlantas(QWidget):
         self.area_imagem = QLabel()
         self.area_imagem.setAlignment(Qt.AlignCenter)  # Centraliza a imagem
         self.area_imagem.setStyleSheet(
-            "border: 1px solid black; min-height: 100px; background-color: green;"
+            "border: 1px solid black; min-height: 100px; background-color: antiquewhite;"
         )  # Define estilo da borda e fundo
 
         # Botão de cancelar
         botao_cancelar = QPushButton("Cancelar")
         botao_cancelar.setStyleSheet(
-            "background-color: gray; color: white;"
+            "background-color: white; color: black;"
         )  # Define o estilo do botão
 
         # Botão para cadastrar a planta
         botao_cadastrar = QPushButton("Cadastrar")
         botao_cadastrar.setStyleSheet(
-            "background-color: gray; color: white;"
+            "background-color: white; color: black;"
         )  # Define o estilo do botão
         botao_cadastrar.clicked.connect(
             self.botao_clicado
