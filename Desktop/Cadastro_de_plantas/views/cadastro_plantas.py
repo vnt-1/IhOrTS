@@ -76,6 +76,7 @@ class CadastroPlantas(QWidget):
             QFont("Arial", 14, QFont.Bold)
         )  # Define a fonte e o tamanho do texto
         titulo.setStyleSheet("color: black;")  # Define a cor do texto
+        titulo.setAlignment(Qt.AlignCenter)
 
         # Campo de entrada para o nome popular da planta
         self.input_nome_popular = QLineEdit()
