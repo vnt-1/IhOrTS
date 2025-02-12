@@ -1,20 +1,10 @@
 import sys
 
 # Importação dos módulos necessários do PyQt5 para criação da interface gráfica
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication
 
 # Importa o controlador responsável por gerenciar a lógica do cadastro de plantas
 from views.cadastro_plantas import CadastroPlantas
-
-
-# Definição da classe CadastroPlantas, que representa a interface gráfica do cadastro de plantas
-class index(QWidget):
-    def __init__(self):
-        super().__init__()  # Inicializa a classe pai QWidget
-        self.view = CadastroPlantas()
-        # Instancia o controlador para manipular os dados das plantas
-        self.imagem_path = ""  # Variável para armazenar o caminho da imagem selecionada
-        self.initUI()  # Chama o método para inicializar a interface gráfica
 
 
 # Bloco principal para rodar o programa
