@@ -40,3 +40,7 @@ class PlantaModel:
         """
         self.cursor.close()  # Fecha o cursor
         self.conexao.close()  # Fecha a conexão com o banco de dados
+
+    def buscar_plantas(self):
+        self.cursor.execute("select * from plantas")
+        return self.cursor.fetchall()

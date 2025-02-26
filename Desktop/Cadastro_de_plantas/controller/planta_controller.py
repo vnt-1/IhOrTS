@@ -22,3 +22,6 @@ class PlantaController:
         if nome_popular and nome_cientifico:
             return self.model.inserir_planta(nome_popular, nome_cientifico, imagem_path)
         return None
+
+    def mostrar_plantas(self):
+        return self.model.buscar_plantas()

@@ -14,6 +14,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt
 from views.cadastro_plantas import CadastroPlantas
 from views.dados_plantas import DadosPlantas
+from views.visualizar_plantas import VisualizarPlantas
 
 
 class MainWindow(QMainWindow):
@@ -22,12 +23,16 @@ class MainWindow(QMainWindow):
         self.initUI()
         self.window_cadastro_planta = CadastroPlantas()
         self.window_cadastro_dados = DadosPlantas()
+        self.window_visualizar_plantas = VisualizarPlantas()
 
     def show_cadastrar_planta(self):
         self.window_cadastro_planta.show()
 
-    def show_dados_plantas(self):
+    def show_cadastrar_dados_plantas(self):
         self.window_cadastro_dados.show()
+
+    def show_visualizar_plantas(self):
+        self.window_visualizar_plantas.show()
 
     def initUI(self):
         self.setWindowTitle("Janela principal")
@@ -41,11 +46,15 @@ class MainWindow(QMainWindow):
         botao_cadastro_planta.clicked.connect(self.show_cadastrar_planta)
 
         botao_cadastro_dados = QPushButton("Cadastrar dados")
-        botao_cadastro_dados.clicked.connect(self.show_dados_plantas)
+        botao_cadastro_dados.clicked.connect(self.show_cadastrar_dados_plantas)
+
+        botao_mostrar_plantas = QPushButton("Mostrar plantas")
+        botao_mostrar_plantas.clicked.connect(self.show_visualizar_plantas)
 
         layout.addWidget(titulo)
         layout.addWidget(botao_cadastro_planta)
         layout.addWidget(botao_cadastro_dados)
+        layout.addWidget(botao_mostrar_plantas)
 
         central_widget = QWidget()
         central_widget.setLayout(layout)
