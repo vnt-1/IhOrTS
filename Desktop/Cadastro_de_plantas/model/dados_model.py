@@ -1,12 +1,13 @@
-import mysql.connector
+import mariadb
 
 
 class DadosModel:
     def __init__(self):
-        self.conexao = mysql.connector.connect(
-            host="localhost",
+        self.conexao = mariadb.connect(
+            host="127.0.0.1",
+            port=3306,
             user="root",
-            password="",
+            password="rootpassword",
             database="plantas_db",
         )
         self.cursor = self.conexao.cursor()
@@ -23,3 +24,7 @@ class DadosModel:
     def fechar_conexao(self):
         self.cursor.close()
         self.conexao.close()
+
+    def buscar_dados(self):
+        self.cursor.execute("select * from dados")
+        return self.cursor.fetchall()

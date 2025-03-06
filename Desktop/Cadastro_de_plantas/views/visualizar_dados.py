@@ -13,24 +13,22 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtGui import QFont, QPixmap
 from PyQt6.QtCore import Qt
 
-# Importa o controlador responsável por gerenciar a lógica do cadastro de plantas
-from controller.planta_controller import PlantaController
+from controller.dados_controller import DadosController
 
-
-class VisualizarPlantas(QWidget):
+class VisualizarDados(QWidget):
     def __init__(self):
         super().__init__()
-        self.controller = PlantaController()
+        self.controller = DadosController()
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("Plantas cadastradas")
+        self.setWindowTitle("Dados cadastrados")
         self.setGeometry(500, 100, 400, 300)
         layout = QVBoxLayout()
 
         self.tabela = QTableWidget()
-        self.tabela.setColumnCount(3)
-        self.tabela.setHorizontalHeaderLabels(["ID", "Nome Popular", "Nome Científico"])
+        self.tabela.setColumnCount(4)
+        self.tabela.setHorizontalHeaderLabels(["ID", "Temperatura", "Luminosidade", "Umidade"])
 
         layout.addWidget(self.tabela)
 
@@ -42,10 +40,11 @@ class VisualizarPlantas(QWidget):
         self.carregar_dados()
 
     def carregar_dados(self):
-        plantas = self.controller.mostrar_plantas()
-        self.tabela.setRowCount(len(plantas))
+        dados = self.controller.mostrar_dados()
+        self.tabela.setRowCount(len(dados))
 
-        for row, planta in enumerate(plantas):
-            self.tabela.setItem(row, 0, QTableWidgetItem(str(planta[0])))
-            self.tabela.setItem(row, 1, QTableWidgetItem(planta[1]))
-            self.tabela.setItem(row, 2, QTableWidgetItem(planta[2]))
+        for row, dado in enumerate(dados):
+            self.tabela.setItem(row, 0, QTableWidgetItem(str(dado[0])))
+            self.tabela.setItem(row, 1, QTableWidgetItem(str(dado[1])))
+            self.tabela.setItem(row, 2, QTableWidgetItem(str(dado[2])))
+            self.tabela.setItem(row, 3, QTableWidgetItem(str(dado[3])))

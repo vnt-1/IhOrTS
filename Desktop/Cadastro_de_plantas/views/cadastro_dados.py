@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QApplication,
     QWidget,
     QLabel,
@@ -10,13 +10,13 @@ from PyQt5.QtWidgets import (
     QFileDialog,
     QMessageBox,
 )
-from PyQt5.QtGui import QFont, QPixmap
-from PyQt5.QtCore import Qt
+from PyQt6.QtGui import QFont, QPixmap
+from PyQt6.QtCore import Qt
 
 from controller.dados_controller import DadosController
 
 
-class DadosPlantas(QWidget):
+class CadastroDados(QWidget):
     def __init__(self):
         super().__init__()
         self.controller = DadosController()
@@ -38,7 +38,7 @@ class DadosPlantas(QWidget):
 
             self.input_umidade.clear()
             self.input_temperatura.clear()
-            self.input_luminosidade.clear
+            self.input_luminosidade.clear()
         else:
             QMessageBox.critical(self, "Erro", "Erro ao cadastrar dados.")
 
@@ -49,7 +49,7 @@ class DadosPlantas(QWidget):
 
         layout = QVBoxLayout()
         titulo = QLabel("Receber e enviar Dados")
-        titulo.setAlignment(Qt.AlignCenter)
+        titulo.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         titulo_umidade = QLabel("Umidade")
         self.input_umidade = QLineEdit()

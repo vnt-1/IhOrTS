@@ -1,7 +1,7 @@
 import sys
 
-# Importação dos módulos necessários do PyQt5 para criação da interface gráfica
-from PyQt5.QtWidgets import (
+# Importação dos módulos necessários do PyQt6 para criação da interface gráfica
+from PyQt6.QtWidgets import (
     QApplication,
     QWidget,
     QLabel,
@@ -11,8 +11,8 @@ from PyQt5.QtWidgets import (
     QFileDialog,
     QMessageBox,
 )
-from PyQt5.QtGui import QFont, QPixmap
-from PyQt5.QtCore import Qt
+from PyQt6.QtGui import QFont, QPixmap
+from PyQt6.QtCore import Qt
 
 # Importa o controlador responsável por gerenciar a lógica do cadastro de plantas
 from controller.planta_controller import PlantaController
@@ -73,10 +73,10 @@ class CadastroPlantas(QWidget):
         # Criação do título da tela
         titulo = QLabel("Faça o CADASTRO")
         titulo.setFont(
-            QFont("Arial", 14, QFont.Bold)
+            QFont("Arial", 14, QFont.Weight.Bold)
         )  # Define a fonte e o tamanho do texto
         titulo.setStyleSheet("color: black;")  # Define a cor do texto
-        titulo.setAlignment(Qt.AlignCenter)
+        titulo.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         # Campo de entrada para o nome popular da planta
         self.input_nome_popular = QLineEdit()
@@ -103,7 +103,7 @@ class CadastroPlantas(QWidget):
 
         # Área onde a imagem selecionada será exibida
         self.area_imagem = QLabel()
-        self.area_imagem.setAlignment(Qt.AlignCenter)  # Centraliza a imagem
+        self.area_imagem.setAlignment(Qt.AlignmentFlag.AlignCenter)  # Centraliza a imagem
         self.area_imagem.setStyleSheet(
             "border: 1px solid black; min-height: 100px; background-color: antiquewhite;"
         )  # Define estilo da borda e fundo
@@ -155,7 +155,7 @@ class CadastroPlantas(QWidget):
 
 # Bloco principal para rodar o programa
 if __name__ == "__main__":
-    app = QApplication(sys.argv)  # Inicializa o aplicativo PyQt5
+    app = QApplication(sys.argv)  # Inicializa o aplicativo PyQt6
     janela = CadastroPlantas()  # Cria uma instância da janela de cadastro de plantas
     janela.show()  # Exibe a janela
     sys.exit(app.exec_())  # Mantém o aplicativo em execução até que o usuário o feche

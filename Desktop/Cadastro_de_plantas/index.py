@@ -1,20 +1,21 @@
 import sys
 
-# Importação dos módulos necessários do PyQt5 para criação da interface gráfica
-from PyQt5.QtWidgets import QApplication
+# Importação dos módulos necessários do PyQt6 para criação da interface gráfica
+from PyQt6.QtWidgets import QApplication
 
 # Importa o controlador responsável por gerenciar a lógica do cadastro de plantas
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QWidget,
     QLabel,
     QPushButton,
     QVBoxLayout,
     QMainWindow,
 )
-from PyQt5.QtCore import Qt
+from PyQt6.QtCore import Qt
 from views.cadastro_plantas import CadastroPlantas
-from views.dados_plantas import DadosPlantas
+from views.cadastro_dados import CadastroDados
 from views.visualizar_plantas import VisualizarPlantas
+from views.visualizar_dados import VisualizarDados
 
 
 class MainWindow(QMainWindow):
@@ -22,17 +23,21 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.initUI()
         self.window_cadastro_planta = CadastroPlantas()
-        self.window_cadastro_dados = DadosPlantas()
+        self.window_cadastro_dado = CadastroDados()
         self.window_visualizar_plantas = VisualizarPlantas()
+        self.window_visualizar_dados = VisualizarDados()
 
     def show_cadastrar_planta(self):
         self.window_cadastro_planta.show()
 
-    def show_cadastrar_dados_plantas(self):
-        self.window_cadastro_dados.show()
+    def show_cadastrar_dado(self):
+        self.window_cadastro_dado.show()
 
     def show_visualizar_plantas(self):
         self.window_visualizar_plantas.show()
+
+    def show_visualizar_dados(self):
+        self.window_visualizar_dados.show()
 
     def initUI(self):
         self.setWindowTitle("Janela principal")
@@ -40,21 +45,25 @@ class MainWindow(QMainWindow):
 
         layout = QVBoxLayout()
         titulo = QLabel("Selecione uma ação")
-        titulo.setAlignment(Qt.AlignCenter)
+        titulo.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         botao_cadastro_planta = QPushButton("Cadastrar Planta")
         botao_cadastro_planta.clicked.connect(self.show_cadastrar_planta)
 
         botao_cadastro_dados = QPushButton("Cadastrar dados")
-        botao_cadastro_dados.clicked.connect(self.show_cadastrar_dados_plantas)
+        botao_cadastro_dados.clicked.connect(self.show_cadastrar_dado)
 
         botao_mostrar_plantas = QPushButton("Mostrar plantas")
         botao_mostrar_plantas.clicked.connect(self.show_visualizar_plantas)
+
+        botao_mostrar_dados = QPushButton("Mostrar dados")
+        botao_mostrar_dados.clicked.connect(self.show_visualizar_dados)
 
         layout.addWidget(titulo)
         layout.addWidget(botao_cadastro_planta)
         layout.addWidget(botao_cadastro_dados)
         layout.addWidget(botao_mostrar_plantas)
+        layout.addWidget(botao_mostrar_dados)
 
         central_widget = QWidget()
         central_widget.setLayout(layout)
@@ -65,4 +74,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     janela = MainWindow()
     janela.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
