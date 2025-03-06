@@ -1,16 +1,12 @@
-import sys
 
 from PyQt6.QtWidgets import (
-    QApplication,
     QWidget,
     QLabel,
     QPushButton,
     QVBoxLayout,
     QLineEdit,
-    QFileDialog,
     QMessageBox,
 )
-from PyQt6.QtGui import QFont, QPixmap
 from PyQt6.QtCore import Qt
 
 from controller.dados_controller import DadosController

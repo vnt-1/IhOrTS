@@ -1,17 +1,10 @@
 from PyQt6.QtWidgets import (
-    QApplication,
     QWidget,
-    QLabel,
     QPushButton,
     QVBoxLayout,
-    QLineEdit,
-    QFileDialog,
-    QMessageBox,
     QTableWidget,
     QTableWidgetItem,
 )
-from PyQt6.QtGui import QFont, QPixmap
-from PyQt6.QtCore import Qt
 
 # Importa o controlador responsável por gerenciar a lógica do cadastro de plantas
 from controller.planta_controller import PlantaController
