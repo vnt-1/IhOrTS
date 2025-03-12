@@ -7,10 +7,9 @@ class PlantaModel:
         Inicializa a conexão com o banco de dados MySQL e cria um cursor para executar comandos SQL.
         """
         self.conexao = mariadb.connect(
-            host="127.0.0.1",  # Endereço do servidor MySQL
-            port=3306,
+            host="localhost",  # Endereço do servidor MySQL
             user="root",  # Usuário do banco de dados
-            password="rootpassword",  # Senha do banco de dados (nesse caso, vazia)
+            password="",  # Senha do banco de dados (nesse caso, vazia)
             database="plantas_db",  # Nome do banco de dados onde as plantas serão armazenadas
         )
         self.cursor = (

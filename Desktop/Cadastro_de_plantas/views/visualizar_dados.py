@@ -8,6 +8,7 @@ from PyQt6.QtWidgets import (
 
 from controller.dados_controller import DadosController
 
+
 class VisualizarDados(QWidget):
     def __init__(self):
         super().__init__()
@@ -21,7 +22,9 @@ class VisualizarDados(QWidget):
 
         self.tabela = QTableWidget()
         self.tabela.setColumnCount(4)
-        self.tabela.setHorizontalHeaderLabels(["ID", "Temperatura", "Luminosidade", "Umidade"])
+        self.tabela.setHorizontalHeaderLabels(
+            ["ID", "Temperatura", "Luminosidade", "Umidade"]
+        )
 
         layout.addWidget(self.tabela)
 

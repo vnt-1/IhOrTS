@@ -4,10 +4,9 @@ import mariadb
 class DadosModel:
     def __init__(self):
         self.conexao = mariadb.connect(
-            host="127.0.0.1",
-            port=3306,
+            host="localhost",
             user="root",
-            password="rootpassword",
+            password="",
             database="plantas_db",
         )
         self.cursor = self.conexao.cursor()
