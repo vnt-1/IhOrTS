@@ -12,7 +12,6 @@ from controller.dados_controller import DadosController
 class VisualizarDados(QWidget):
     def __init__(self):
         super().__init__()
-        self.controller = DadosController()
         self.initUI()
 
     def initUI(self):
@@ -33,9 +32,9 @@ class VisualizarDados(QWidget):
 
         layout.addWidget(botao_atualizar)
         self.setLayout(layout)
-        self.carregar_dados()
 
     def carregar_dados(self):
+        self.controller = DadosController()
         dados = self.controller.mostrar_dados()
         self.tabela.setRowCount(len(dados))
 

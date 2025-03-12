@@ -13,7 +13,6 @@ from controller.planta_controller import PlantaController
 class VisualizarPlantas(QWidget):
     def __init__(self):
         super().__init__()
-        self.controller = PlantaController()
         self.initUI()
 
     def initUI(self):
@@ -35,6 +34,7 @@ class VisualizarPlantas(QWidget):
         self.carregar_dados()
 
     def carregar_dados(self):
+        self.controller = PlantaController()
         plantas = self.controller.mostrar_plantas()
         self.tabela.setRowCount(len(plantas))
 

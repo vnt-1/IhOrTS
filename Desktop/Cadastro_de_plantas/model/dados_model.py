@@ -25,5 +25,5 @@ class DadosModel:
         self.conexao.close()
 
     def buscar_dados(self):
-        self.cursor.execute("select * from dados")
+        self.cursor.execute("select * from dados")     
         return self.cursor.fetchall()

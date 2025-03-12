@@ -4,13 +4,7 @@ import sys
 from PyQt6.QtWidgets import QApplication
 
 # Importa o controlador responsável por gerenciar a lógica do cadastro de plantas
-from PyQt6.QtWidgets import (
-    QWidget,
-    QLabel,
-    QPushButton,
-    QVBoxLayout,
-    QMainWindow,
-)
+from PyQt6.QtWidgets import QWidget, QLabel, QPushButton, QVBoxLayout, QMainWindow
 from PyQt6.QtCore import Qt
 from views.cadastro_plantas import CadastroPlantas
 from views.cadastro_dados import CadastroDados
