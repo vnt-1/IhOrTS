@@ -103,7 +103,9 @@ class CadastroPlantas(QWidget):
 
         # Área onde a imagem selecionada será exibida
         self.area_imagem = QLabel()
-        self.area_imagem.setAlignment(Qt.AlignmentFlag.AlignCenter)  # Centraliza a imagem
+        self.area_imagem.setAlignment(
+            Qt.AlignmentFlag.AlignCenter
+        )  # Centraliza a imagem
         self.area_imagem.setStyleSheet(
             "border: 1px solid black; min-height: 100px; background-color: antiquewhite;"
         )  # Define estilo da borda e fundo
