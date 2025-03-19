@@ -60,10 +60,13 @@ class EditarPlanta(QWidget):
         botao_enviar.clicked.connect(self.salvar_edicao)
 
         layout.addWidget(titulo)
+
         layout.addWidget(titulo_nome_popular)
         layout.addWidget(self.input_nome_popular)
+
         layout.addWidget(titulo_nome_cientifico)
         layout.addWidget(self.input_nome_cientifico)
+
         layout.addWidget(botao_enviar)
 
         self.setLayout(layout)
