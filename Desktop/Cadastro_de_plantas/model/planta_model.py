@@ -44,3 +44,10 @@ class PlantaModel:
     def buscar_plantas(self):
         self.cursor.execute("select * from plantas")
         return self.cursor.fetchall()
+
+    def update_planta(self, nome_popular, nome_cientifico, planta_id):
+        sql = "UPDATE plantas SET nome_popular = %s, nome_cientifico = %s where id = %s"
+        valores = (nome_popular, nome_cientifico, planta_id)
+        self.cursor.execute(sql, valores)
+        self.conexao.commit()
+        return self.cursor.lastrowid
