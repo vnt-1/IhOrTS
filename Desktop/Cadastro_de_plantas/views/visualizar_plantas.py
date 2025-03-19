@@ -51,7 +51,7 @@ class VisualizarPlantas(QWidget):
     def abrir_tela_edicao(self):
         linha_selecionada = self.tabela.currentRow()
 
-        if linha_selecionada != 1:
+        if linha_selecionada != -1:
             planta_id = int(self.tabela.item(linha_selecionada, 0).text())
             nome_popular = self.tabela.item(linha_selecionada, 1).text()
             nome_cientifico = self.tabela.item(linha_selecionada, 2).text()
