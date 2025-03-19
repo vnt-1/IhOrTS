@@ -29,8 +29,11 @@ class EditarPlanta(QWidget):
         if not nome_popular or not nome_cientifico:
             QMessageBox.critical(self, "Erro", "Preencha todos os campos!")
             return
+        else:
+            QMessageBox.information(self, "Sucessor", "Planta atualizada com sucesso")
 
         self.controller.atualizar_planta(self.planta_id, nome_popular, nome_cientifico)
+        self.close()
 
         # if planta_id_edited:
         #     QMessageBox.information(self, "Sucesso", "Plantas cadastrado com sucesso!")
