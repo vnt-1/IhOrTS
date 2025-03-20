@@ -28,3 +28,10 @@ class DadosModel:
     def buscar_dados(self):
         self.cursor.execute("select * from dados")
         return self.cursor.fetchall()
+
+    def update_dado(self, umidade, temperatura, luminosidade, dado_id):
+        sql = "UPDATE dados SET umidade = %s, temperatura = %s, luminosidade = %s where id_dados = %s"
+        valores = (umidade, temperatura, luminosidade, dado_id)
+        self.cursor.execute(sql, valores)
+        self.conexao.commit()
+        return self.cursor.lastrowid
