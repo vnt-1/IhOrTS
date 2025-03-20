@@ -29,12 +29,12 @@ class VisualizarPlantas(QWidget):
 
         botao_atualizar = QPushButton("Atualizar")
         botao_atualizar.clicked.connect(self.carregar_dados)
+        layout.addWidget(botao_atualizar)
 
         botao_editar = QPushButton("Editar")
         botao_editar.clicked.connect(self.abrir_tela_edicao)
-
-        layout.addWidget(botao_atualizar)
         layout.addWidget(botao_editar)
+
         self.setLayout(layout)
         self.carregar_dados()
 
