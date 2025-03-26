@@ -16,3 +16,6 @@ class DadosController:
     def atualizar_dado(self, dado_id, umidade, temperatura, luminosidade):
         if umidade and temperatura and luminosidade:
             return self.model.update_dado(umidade, temperatura, luminosidade, dado_id)
+
+    def deletar_registro(self, dado_id):
+        return self.model.delete_dado(dado_id)

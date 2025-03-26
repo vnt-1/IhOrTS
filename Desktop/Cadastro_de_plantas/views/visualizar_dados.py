@@ -8,6 +8,7 @@ from PyQt6.QtWidgets import (
 
 from controller.dados_controller import DadosController
 from views.editar_dado import EditarDado
+from views.deletar_dado import DeletarDado
 
 
 class VisualizarDados(QWidget):
@@ -36,6 +37,10 @@ class VisualizarDados(QWidget):
         botao_editar.clicked.connect(self.abrir_tela_edicao)
         layout.addWidget(botao_editar)
 
+        botao_deletar = QPushButton("Deletar")
+        botao_deletar.clicked.connect(self.abrir_tela_delete)
+        layout.addWidget(botao_deletar)
+
         self.setLayout(layout)
 
     def carregar_dados(self):
@@ -62,4 +67,14 @@ class VisualizarDados(QWidget):
                 dado_id, umidade, temperatura, luminosidade, self
             )
             self.tela_edicao.show()
+            self.close()
+
+    def abrir_tela_delete(self):
+        linha_selecionada = self.tabela.currentRow()
+
+        if linha_selecionada != -1:
+            dado_id = int(self.tabela.item(linha_selecionada, 0).text())
+
+            self.tela_delete = DeletarDado(dado_id)
+            self.tela_delete.show()
             self.close()

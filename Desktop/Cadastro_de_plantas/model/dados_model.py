@@ -5,7 +5,7 @@ class DadosModel:
     def __init__(self):
         self.conexao = mariadb.connect(
             host="127.0.0.1",
-            #port=3306,
+            # port=3306,
             user="root",
             password="",
             database="plantas_db",
@@ -26,7 +26,7 @@ class DadosModel:
         self.conexao.close()
 
     def buscar_dados(self):
-        self.cursor.execute("select * from dados")
+        self.cursor.execute("select * from dados where estatus = 'A'")
         return self.cursor.fetchall()
 
     def update_dado(self, umidade, temperatura, luminosidade, dado_id):
@@ -35,3 +35,9 @@ class DadosModel:
         self.cursor.execute(sql, valores)
         self.conexao.commit()
         return self.cursor.lastrowid
+
+    def delete_dado(self, dado_id):
+        sql = "UPDATE dados set estatus = 'I' where id_dados = %s"
+        valores = [dado_id]
+        self.cursor.execute(sql, valores)
+        self.conexao.commit()
