@@ -9,6 +9,7 @@ from PyQt6.QtWidgets import (
 # Importa o controlador responsável por gerenciar a lógica do cadastro de plantas
 from controller.planta_controller import PlantaController
 from views.editar_planta import EditarPlanta
+from views.deletar_planta import DeletarPlanta
 
 
 class VisualizarPlantas(QWidget):
@@ -35,6 +36,10 @@ class VisualizarPlantas(QWidget):
         botao_editar.clicked.connect(self.abrir_tela_edicao)
         layout.addWidget(botao_editar)
 
+        botao_deletar = QPushButton("Deletar")
+        botao_deletar.clicked.connect(self.abrir_tela_delete)
+        layout.addWidget(botao_deletar)
+
         self.setLayout(layout)
         self.carregar_dados()
 
@@ -60,4 +65,14 @@ class VisualizarPlantas(QWidget):
                 planta_id, nome_popular, nome_cientifico, self
             )
             self.tela_edicao.show()
+            self.close()
+
+    def abrir_tela_delete(self):
+        linha_selecionada = self.tabela.currentRow()
+
+        if linha_selecionada != -1:
+            planta_id = int(self.tabela.item(linha_selecionada, 0).text())
+
+            self.tela_delete = DeletarPlanta(planta_id)
+            self.tela_delete.show()
             self.close()

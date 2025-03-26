@@ -39,5 +39,5 @@ class DeletarPlanta(QWidget):
 
     def deletar_registro(self):
         if self.planta_id:
-            self.controller.deleta_registro(self.planta_id)
+            self.controller.deletar_registro(self.planta_id)
             self.close()

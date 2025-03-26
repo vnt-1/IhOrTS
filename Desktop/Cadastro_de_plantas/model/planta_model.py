@@ -8,9 +8,9 @@ class PlantaModel:
         """
         self.conexao = mariadb.connect(
             host="127.0.0.1",  # Endereço do servidor MySQL
-            port=3306,
+            # port=3306,
             user="root",  # Usuário do banco de dados
-            password="rootpassword",  # Senha do banco de dados (nesse caso, vazia)
+            password="",  # Senha do banco de dados (nesse caso, vazia)
             database="plantas_db",  # Nome do banco de dados onde as plantas serão armazenadas
         )
         self.cursor = (
@@ -43,7 +43,7 @@ class PlantaModel:
         self.conexao.close()  # Fecha a conexão com o banco de dados
 
     def buscar_plantas(self):
-        self.cursor.execute("select * from plantas")
+        self.cursor.execute("select * from plantas where estatus = 'A'")
         return self.cursor.fetchall()
 
     def update_planta(self, nome_popular, nome_cientifico, planta_id):
@@ -55,6 +55,6 @@ class PlantaModel:
 
     def delete_planta(self, planta_id):
         sql = "UPDATE plantas set estatus = 'I' where id = %s"
-        valores = planta_id
+        valores = [planta_id]
         self.cursor.execute(sql, valores)
         self.conexao.commit()
