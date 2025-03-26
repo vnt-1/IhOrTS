@@ -26,21 +26,9 @@ class EditarPlanta(QWidget):
         if not nome_popular or not nome_cientifico:
             QMessageBox.critical(self, "Erro", "Preencha todos os campos!")
             return
-        # else:
-        #     QMessageBox.information(self, "Sucesso", "Planta atualizada com sucesso")
 
         self.controller.atualizar_planta(self.planta_id, nome_popular, nome_cientifico)
         self.close()
-
-        # if planta_id_edited:
-        #     QMessageBox.information(self, "Sucesso", "Plantas cadastrado com sucesso!")
-
-        #     # self.input_nome_popular.clear()
-        #     # self.input_nome_cientifico.clear()
-        #     # self.input_luminosidade.clear()
-        #     # self.w = None
-        # else:
-        #     QMessageBox.critical(self, "Erro", "Erro ao cadastrar plantas.")
 
     def initUI(self, nome_popular, nome_cientifico):
         self.setWindowTitle("Editar planta")

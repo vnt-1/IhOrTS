@@ -15,5 +15,8 @@ CREATE TABLE dados(
     umidade DECIMAL NOT NULL
 );
 
+ALTER TABLE plantas ADD COLUMN estatus CHAR(1) DEFAULT 'A';
+ALTER TABLE dados ADD COLUMN estatus CHAR(1) DEFAULT 'A';
+
 SELECT * FROM plantas;
 SELECT * FROM dados;

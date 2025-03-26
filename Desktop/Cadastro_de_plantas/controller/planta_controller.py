@@ -29,3 +29,6 @@ class PlantaController:
     def atualizar_planta(self, planta_id, nome_popular, nome_cientifico):
         if nome_popular and nome_cientifico:
             return self.model.update_planta(nome_popular, nome_cientifico, planta_id)
+
+    def deletar_registro(self, planta_id):
+        return self.model.delete_planta(planta_id)

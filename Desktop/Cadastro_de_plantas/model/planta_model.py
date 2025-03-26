@@ -52,3 +52,9 @@ class PlantaModel:
         self.cursor.execute(sql, valores)
         self.conexao.commit()
         return self.cursor.lastrowid
+
+    def delete_planta(self, planta_id):
+        sql = "UPDATE plantas set estatus = 'I' where id = %s"
+        valores = planta_id
+        self.cursor.execute(sql, valores)
+        self.conexao.commit()
