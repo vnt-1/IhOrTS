@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import (
     QVBoxLayout,
     QTableWidget,
     QTableWidgetItem,
+    QHeaderView,
 )
 
 from controller.dados_controller import DadosController
@@ -18,13 +19,17 @@ class VisualizarDados(QWidget):
 
     def initUI(self):
         self.setWindowTitle("Dados cadastrados")
-        self.setGeometry(500, 100, 400, 300)
+        self.setGeometry(800, 800, 600, 600)
         layout = QVBoxLayout()
 
         self.tabela = QTableWidget()
         self.tabela.setColumnCount(4)
         self.tabela.setHorizontalHeaderLabels(
             ["ID", "Temperatura", "Luminosidade", "Umidade"]
+        )
+
+        self.tabela.horizontalHeader().setSectionResizeMode(
+            QHeaderView.ResizeMode.Stretch
         )
 
         layout.addWidget(self.tabela)
