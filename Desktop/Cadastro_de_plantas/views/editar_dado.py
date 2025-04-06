@@ -63,8 +63,6 @@ class EditarDado(QWidget):
         if not umidade or not temperatura or not luminosidade:
             QMessageBox.critical(self, "Erro", "Preencha todos os campos!")
             return
-        # else:
-        #     QMessageBox.information(self, "Sucesso", "Dado atualizado com sucesso")
 
         self.controller.atualizar_dado(self.dado_id, umidade, temperatura, luminosidade)
         self.close()
