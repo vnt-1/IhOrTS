@@ -8,9 +8,9 @@ class PlantaModel:
         """
         self.conexao = mariadb.connect(
             host="127.0.0.1",  # Endereço do servidor MySQL
-            # port=3306,
+            port=3306,
             user="root",  # Usuário do banco de dados
-            password="",  # Senha do banco de dados (nesse caso, vazia)
+            password="rootpassword",  # Senha do banco de dados (nesse caso, vazia)
             database="plantas_db",  # Nome do banco de dados onde as plantas serão armazenadas
         )
         self.cursor = (

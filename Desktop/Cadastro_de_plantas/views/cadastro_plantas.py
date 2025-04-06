@@ -138,20 +138,20 @@ class CadastroPlantas(QWidget):
 
     # Método para abrir um seletor de arquivos para escolher uma imagem
     def abrir_arquivo(self):
-        options = QFileDialog.Options()  # Configurações do seletor de arquivos
+        # options = QFileDialog.setOptions()  # Configurações do seletor de arquivos
+        # options |= QFileDialog.DontUseNativeDialog
         # Abre a janela para selecionar a imagem, permitindo vários formatos
         file_name, _ = QFileDialog.getOpenFileName(
             self,
             "Abrir Arquivo",
             "",
             "Imagens (*.png *.jpg *.jpeg *.bmp *.gif);;Todos os Arquivos (*)",
-            options=options,
         )
         if file_name:  # Se um arquivo for selecionado
             self.imagem_path = file_name  # Armazena o caminho da imagem escolhida
             pixmap = QPixmap(file_name)  # Carrega a imagem
             self.area_imagem.setPixmap(
-                pixmap.scaled(200, 200, Qt.KeepAspectRatio)
+                pixmap.scaled(200, 200, Qt.AspectRatioMode.KeepAspectRatio)
             )  # Exibe a imagem redimensionada
 
 
