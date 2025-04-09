@@ -19,7 +19,7 @@ class VisualizarDados(QWidget):
 
     def initUI(self):
         self.setWindowTitle("Dados cadastrados")
-        self.setGeometry(800, 800, 600, 600)
+        self.setGeometry(200, 200, 600, 600)
         layout = QVBoxLayout()
 
         self.tabela = QTableWidget()
